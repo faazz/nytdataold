@@ -12,8 +12,8 @@ from flask import Flask
 from flask_cors import CORS
 import os
 
-df_jobs = pd.read_csv('nyt_255_ces.csv')
-df_wages = pd.read_csv('nyt_255_wages.csv')
+df_jobs = pd.read_csv('https://github.com/faazz/nytdataold/blob/master/nyt_255_ces.csv')
+df_wages = pd.read_csv('https://github.com/faazz/nytdataold/blob/master/nyt_255_wages.csv')
 
 series = {
     'absolute_wages': {},

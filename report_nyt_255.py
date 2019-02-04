@@ -12,8 +12,8 @@ from flask import Flask
 from flask_cors import CORS
 import os
 
-df_jobs = pd.read_csv('https://github.com/faazz/nytdataold/blob/master/nyt_255_ces.csv')
-df_wages = pd.read_csv('https://github.com/faazz/nytdataold/blob/master/nyt_255_wages.csv')
+df_jobs = pd.read_csv('nyt_255_ces.csv')
+df_wages = pd.read_csv('nyt_255_wages.csv')
 
 series = {
     'absolute_wages': {},
@@ -213,8 +213,8 @@ def create_figure(highlight_cescode=None, skip_labels=[], show_only=[]):
     return {'data': traces, 'layout': layout}
 
 
-application = Dash(__name__)
-server = application.server
+app = Dash(__name__)
+server = app.server
 
 layout = html.Div([
 
@@ -444,7 +444,7 @@ layout = html.Div([
 
     html.Div(
         dcc.SyntaxHighlighter(
-            open('application.py', 'r').read(),
+            open('report_nyt_255.py', 'r').read(),
             language='python'
         ),
         className='container',
@@ -454,10 +454,10 @@ layout = html.Div([
 ])
 
 
-application.layout = layout
+app.layout = layout
 
 
-@application.callback(
+@app.callback(
     Output('filtered-content', 'children'),
     [Input('category-filter', 'value')])
 def filter(selected_values):
@@ -479,4 +479,4 @@ def filter(selected_values):
 
 
 if __name__ == '__main__':
-    application.run_server(debug=True, threaded=True)
+    app.run_server(debug=True, threaded=True)

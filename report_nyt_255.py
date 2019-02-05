@@ -41,8 +41,8 @@ for i in range(len(df_jobs)):
 
 
 def create_figure(highlight_cescode=None, skip_labels=[], show_only=[]):
-    max_wage = max(df_wages['2006-03-01'])
-    min_wage = min(df_wages['2006-03-01'])
+    max_wage = max(df_wages['2018-03-01'])
+    min_wage = min(df_wages['2018-03-01'])
     # Construct the charts
     scale = cl.scales['5']['div']['RdBu']
     traces = []

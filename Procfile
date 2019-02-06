@@ -1,1 +1,1 @@
-web: gunicorn report_nyt_255:server --log-file=-
+web: gunicorn datapp:server --log-file=-
